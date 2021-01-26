@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Las rutas son: "/crear", "/listar", "/*id*/editar"';
+});
+
+Route::get('/crear', function () {
+    return 'Aqui creas las notas';
+});
+
+Route::get('/listar', function () {
+    return 'Aqui ves todas las notas';
+});
+
+Route::get('/{id}/editar', function ($id) {
+    return 'Aqui se editan notas con esta id: ' .$id;
 });
