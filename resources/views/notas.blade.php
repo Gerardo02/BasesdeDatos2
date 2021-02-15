@@ -83,17 +83,17 @@
                         </p>
 
                         <pre>
-    &lt;?php
+                            &lt;?php
 
-    Route::get('/', function () {
-        return [
-            'Cursos' => [
-                'Primeros pasos con Laravel',
-                'Crea un panel de control con Laravel',
-            ]
-        ];
-    });
-</pre>
+                            Route::get('/', function () {
+                                return [
+                                    'Cursos' => [
+                                        'Primeros pasos con Laravel',
+                                        'Crea un panel de control con Laravel',
+                                    ]
+                                ];
+                            });
+                        </pre>
 
                         <p>Producirá el siguiente resultado:</p>
 
