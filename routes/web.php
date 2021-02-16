@@ -21,7 +21,21 @@ Route::get('/notas', function () {
     return view('notas');
 });
 
+Route::get('/notas', function () {
+    $notas = DB::table('notas')->get();
+
+    return view('notas', ['notas' => $notas]);
+});
+
 Route::get('/agregar', function () {
     return view('agregar');
 });
+
+Route::get('/notas/{id}/editar', function ($id) {
+    $notas = DB::table('notas')
+        ->where('id', $id)
+        ->first();
+
+    return 'Aqui se van a editar las notas' .$id;
+})->name('notas.edit');
 
