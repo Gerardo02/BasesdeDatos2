@@ -14,7 +14,7 @@
             <nav class="main-nav">
                 <ul class="main-nav-list">
                     <li class="main-nav-item active">
-                        <a href="/notas" class="main-nav-link">
+                        <a href="/" class="main-nav-link">
                             <i class="icon icon-th-list"></i>
                             <span>Ver notas</span>
                         </a>
