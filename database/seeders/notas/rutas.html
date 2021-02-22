@@ -3,18 +3,16 @@
 </p>
 
 <pre>
-    &lt;?php
-
-    Route::get('/', function () {
-        return [
-            'Cursos' => [
-                'Primeros pasos con Laravel',
-                'Crea un panel de control con Laravel',
-            ]
-        ];
-    });
+Route::get('/', function () {
+    return [
+        'Cursos' => [
+            'Primeros pasos con Laravel',
+            'Crea un panel de control con Laravel',
+        ]
+    ];
+});
 </pre>
 
 <p>Producirá el siguiente resultado:</p>
 
-<code>{"Cursos":["Primeros pasos con Laravel","Crea un panel de control con Laravel"]}</code>
+<code>{"Cursos":["Primeros pasos con Laravel", "Crea un panel de control con Laravel"]}</code>

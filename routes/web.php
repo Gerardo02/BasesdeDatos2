@@ -13,15 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+
+
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/notas', function () {
-    return view('notas');
-});
-
-Route::get('/notas', function () {
     $notas = DB::table('notas')->get();
 
     return view('notas', ['notas' => $notas]);
@@ -34,8 +30,8 @@ Route::get('/agregar', function () {
 Route::get('/notas/{id}/editar', function ($id) {
     $notas = DB::table('notas')
         ->where('id', $id)
-        ->first();
+        ->get();
 
-    return 'Aqui se van a editar las notas' .$id;
+    return view('agregar', ['notas' => $notas]);
 })->name('notas.edit');
 

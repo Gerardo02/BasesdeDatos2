@@ -28,23 +28,28 @@
                 </ul>
             </nav>
         </header>
+        
+
         <main class="content">
             <div class="cards">
+                @forelse ($notas as $nota)
                 <div class="card card-center">
                     <div class="card-body">
-                        <h1>Nueva nota</h1>
+                        <h1>{{ $nota->titulo }}</h1>
 
                         <form action="">
                             <label for="title" class="field-label">Título: </label>
-                            <input type="text" name="title" id="title" class="field-input">
+                            <input type="text" name="title" id="title" value='{{ $nota->titulo }}' class="field-input">
 
                             <label for="content" class="field-label">Contenido:</label>
-                            <textarea name="content" id="content" rows="10" class="field-textarea"></textarea>
+                            <textarea name="content" id="content" rows="10" class="field-textarea">{!! $nota->contenido !!}</textarea>
 
                             <button type="submit" class="btn btn-primary">Crear nota</button>
                         </form>
                     </div>
                 </div>
+                @empty
+                @endforelse
             </div>
         </main>
         <footer class="foot">
