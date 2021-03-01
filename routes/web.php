@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\Notas;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    $notas = DB::table('notas')->get();
+    $notas = Notas::all();     //DB::table('notas')->get();
 
     return view('notas', ['notas' => $notas]);
 });
@@ -28,9 +29,12 @@ Route::get('/agregar', function () {
 });
 
 Route::get('/notas/{id}/editar', function ($id) {
-    $notas = DB::table('notas')
-        ->where('id', $id)
-        ->get();
+    $notas = Notas::find($id)->where('id', $id)->get();
+
+
+    /*DB::table('notas')
+    ->where('id', $id)
+    >get();*/
 
     return view('agregar', ['notas' => $notas]);
 })->name('notas.edit');
