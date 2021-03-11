@@ -13,13 +13,13 @@
 
             <nav class="main-nav">
                 <ul class="main-nav-list">
-                    <li class="main-nav-item active">
+                    <li class="main-nav-item">
                         <a href="/notas" class="main-nav-link">
                             <i class="icon icon-th-list"></i>
                             <span>Ver notas</span>
                         </a>
                     </li>
-                    <li class="main-nav-item ">
+                    <li class="main-nav-item active">
                         <a href="/agregar" class="main-nav-link">
                             <i class="icon icon-pen"></i>
                             <span>Nueva nota</span>
@@ -28,40 +28,39 @@
                 </ul>
             </nav>
         </header>
+        
+
         <main class="content">
             <div class="cards">
                 @forelse ($notas as $nota)
-                <div class="card card-small">
+                <div class="card card-center">
                     <div class="card-body">
-                        <h4>{{ $nota->titulo }}</h4>
-                        <p>
-                            {!! $nota->contenido !!}
-                        </p>
+                        <h1>{{ $nota->titulo }}</h1>
+
+                        <form action="">
+                            <label for="title" class="field-label">Título: </label>
+                            <input type="text" name="title" id="title" value='{{ $nota->titulo }}' class="field-input" required>
+
+                            <label for="content" class="field-label">Contenido:</label>
+                            <textarea name="content" id="content" rows="10" class="field-textarea" required>{!! $nota->contenido !!}</textarea>
+
+                            <button type="submit" class="btn btn-primary">Crear nota</button>
+                        </form>
                     </div>
-                    
-                    <footer class="card-footer">
-                        <a href="{{ route('notas.edit', ['id' => $nota->id]) }}" class="action-link action-edit">
-                            <i class="icon icon-pen"></i>
-                        </a>
-                        <a class="action-link action-delete">
-                            <i class="icon icon-trash"></i>
-                        </a>
-                    </footer>
                 </div>
                 @empty
-                    <p>No hay registros que mostrar en este momento<a href="/agregar">Agregar nota</a></p>
                 @endforelse
-            </div>     
+            </div>
         </main>
         <footer class="foot">
             <div class="ad">
                 <p>
-                    Esta aplicación es desarrollada en el cursos de IPM
-                    <a href="https://mawe.mx">Primeros pasos con Laravel </a>.
+                    Esta aplicación es desarrollada en cursos de IPM
+                    <a href="https://mawe.mx">Primeros pasos con Laravel</a>.
                 </p>
             </div>
             <div class="license">
-                <p>© 2021 Derechos Reservados - MAWE TECNOLOGIAS</p>
+                <p>© 2021 Derechos Reservados - MAWE TECNOLOGÍAS</p>
             </div>
         </footer>
     </div>

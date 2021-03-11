@@ -14,7 +14,7 @@
             <nav class="main-nav">
                 <ul class="main-nav-list">
                     <li class="main-nav-item">
-                        <a href="/" class="main-nav-link">
+                        <a href="/notas" class="main-nav-link">
                             <i class="icon icon-th-list"></i>
                             <span>Ver notas</span>
                         </a>
@@ -32,24 +32,22 @@
 
         <main class="content">
             <div class="cards">
-                @forelse ($notas as $nota)
                 <div class="card card-center">
                     <div class="card-body">
-                        <h1>{{ $nota->titulo }}</h1>
+                        <h1>Nueva nota</h1>
 
-                        <form action="">
+                        <form method="POST" action="{{ url('crear') }}">
+                            @csrf
                             <label for="title" class="field-label">Título: </label>
-                            <input type="text" name="title" id="title" value='{{ $nota->titulo }}' class="field-input">
+                            <input type="text" name="title" id="title" class="field-input" required>
 
                             <label for="content" class="field-label">Contenido:</label>
-                            <textarea name="content" id="content" rows="10" class="field-textarea">{!! $nota->contenido !!}</textarea>
+                            <textarea name="content" id="content" rows="10" class="field-textarea" required></textarea>
 
                             <button type="submit" class="btn btn-primary">Crear nota</button>
                         </form>
                     </div>
                 </div>
-                @empty
-                @endforelse
             </div>
         </main>
         <footer class="foot">
