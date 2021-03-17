@@ -7,6 +7,10 @@ use App\Models\Notas;
 
 class NotasController extends Controller
 {
+    public function root() {
+        return view('welcome');
+    }
+
     public function index() {
         $notas = Notas::all();     //DB::table('notas')->get();
     
@@ -35,5 +39,16 @@ class NotasController extends Controller
         >get();*/
     
         return view('editar', ['notas' => $notas]);
+    }
+
+    public function update(Notas $notas, Request $request) {
+
+
+        $notas->update([
+            'titulo' => $request->input('title'),
+            'contenido' => $request->input('content'),
+        ]);
+        return redirect('/notas');
+        
     }
 }
