@@ -26,6 +26,8 @@ Route::get('/agregar', 'App\Http\Controllers\NotasController@agregar');
 
 Route::post('/crear', 'App\Http\Controllers\NotasController@crear')->name('notas.store');
 
+Route::delete('/notas/{id}', 'App\Http\Controllers\NotasController@destroy')->name('datos.destroy');
+
 Route::get('/notas/{id}/editar', 'App\Http\Controllers\NotasController@editar')->name('notas.edit');
 
 Route::put('/notas/{notas}/editar', 'App\Http\Controllers\NotasController@update')->name('notas.update');
